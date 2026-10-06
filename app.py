@@ -108,9 +108,33 @@ st.subheader("Últimos cadastros")
 
 st.dataframe(
     st.session_state.cadastros.tail(10),
-    width=True,
-    hide_index=True
+    width="stretch",
+    hide_index=True,
+    column_config={
+        "Nome": st.column_config.TextColumn(
+            "Nome",
+            width="large"
+        ),
+        "Idade": st.column_config.NumberColumn(
+            "Idade",
+            width="small"
+        ),
+        "Convênio": st.column_config.TextColumn(
+            "Convênio",
+            width="medium"
+        ),
+        "Prioridade": st.column_config.NumberColumn(
+            "Prioridade",
+            width="small"
+        ),
+        "Motivo / Observações": st.column_config.TextColumn(
+            "Motivo / Observações",
+            width="large"
+        )
+    },
+    height=300
 )
+
 
 
 # Botão para baixar o CSV
